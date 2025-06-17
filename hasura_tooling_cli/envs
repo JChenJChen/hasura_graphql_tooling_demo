@@ -1,0 +1,6 @@
+export PGDATABASE=<PGDATABASE>
+export PGUSER=readonly
+export PGPASSWORD=
+export PGPORT=<PGPORT>
+export PGHOST=localhost
+export REPO_ROOTDIR=$(git rev-parse --show-toplevel)
