@@ -1,1 +1,1 @@
-# hasura_tooling_demo
+# hasura_graphql_tooling_demo
