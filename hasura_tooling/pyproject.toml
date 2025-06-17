@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "hasura_tooling"
+version = "0.10.6"
+description = "lib for hasura metadata & karate tests update tooling"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+pyyaml = "^5.3"
+psycopg2-binary = "==2.8.3"
+click = "^7.0"
+"ruamel.yaml" = "^0.17.21"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+mypy = "^0.782"
+pytest-cov = "^2.10.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
