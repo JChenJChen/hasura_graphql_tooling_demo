@@ -74,7 +74,6 @@ type Query {
 LIMITED_PERMISSIONS = create_literal_scalar_string(
     """\
 type Address {
-	parcel_id: String
 	city: String
 	one_line_address: String
 	state: String
@@ -157,31 +156,6 @@ class AddressRemoteSchema(RemoteSchema):
         self.sort_permissions()
         return self.remote_metadata
 
-
-class PiplRemoteSchema(RemoteSchema):
-    name = "pipl"
-
-    def __init__(
-        self,
-        remote_schema_metadata: List[Dict[str, str]] = None,
-        metadata_roles: Dict[str, Any] = None,
-    ) -> None:
-        super().__init__(remote_schema_metadata=remote_schema_metadata)
-        self.roles = self.get_roles(metadata_roles=metadata_roles)
-
-    def schema(self) -> str:
-        return create_literal_scalar_string(
-            """\
-type PiplSearchResponse {
-  people: [jsonb]
-  warnings: [String]
-}
-type Query {
-  pipl_search(full_name: String!, one_line_address: String!, email: String, phone_number: String, is_top_match: Boolean): PiplSearchResponse
-}
-scalar jsonb
-"""
-        )
 
     def get_roles(self, metadata_roles: Dict[str, Any] = None) -> List[str]:
         roles = []

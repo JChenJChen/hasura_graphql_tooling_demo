@@ -7,7 +7,6 @@ import yaml
 from hasura_tooling.remote_schema import (
     ROLES_WITH_OLD_DEFAULT_PERMISSIONS,
     AddressRemoteSchema,
-    PiplRemoteSchema,
 )
 from hasura_tooling.util_filepath_and_fileloader import (
     remote_schemas_metadata,
@@ -35,9 +34,6 @@ def remove_remote_schema_permissions_by_role(
     remote_schema_metadata = AddressRemoteSchema(
         remote_schema_metadata=metadata
     ).remove_permission(role=role)
-    remote_schema_metadata = PiplRemoteSchema(
-        remote_schema_metadata=remote_schema_metadata
-    ).remove_permission(role=role)
     return remote_schema_metadata
 
 
@@ -54,9 +50,6 @@ def add_remote_schema_permissions_by_role(
     logging.info(f"Adding remote schema permissions for {role}")
     remote_schema_metadata = AddressRemoteSchema(
         remote_schema_metadata=metadata
-    ).add_permission(role=role)
-    remote_schema_metadata = PiplRemoteSchema(
-        remote_schema_metadata=remote_schema_metadata
     ).add_permission(role=role)
     return remote_schema_metadata
 
